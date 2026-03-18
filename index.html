@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Precious Asher — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0e0c;
+  --ink2:#3a3830;
+  --muted:#8a8474;
+  --gold:#b8882a;
+  --gold-l:#f0e4c4;
+  --bg:#faf9f6;
+  --bg2:#f3f1ec;
+  --border:#e2ddd4;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Outfit',sans-serif;
+  --max:1140px;
+  --nav-h:64px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* ── CURSOR ── */
+*{cursor:none}
+#cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s,background .15s}
+#cursor.hover{transform:translate(-50%,-50%) scale(3.5);background:transparent;border:1.5px solid var(--gold)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(250,249,246,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.06)}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:300;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--ink);padding:9px 22px;border-radius:2px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold)}
+
+/* ── SECTIONS ── */
+section{padding:120px 48px}
+.container{max-width:var(--max);margin:0 auto}
+
+/* ── HERO ── */
+#hero{padding:0;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 64px 120px 48px;background:var(--bg)}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero-name{font-family:var(--serif);font-size:clamp(52px,5.5vw,80px);font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:8px}
+.hero-name em{font-style:italic;color:var(--gold)}
+.hero-title{font-family:var(--serif);font-size:clamp(18px,2vw,24px);font-weight:300;color:var(--muted);margin-bottom:40px;font-style:italic}
+.hero-bio{font-size:15.5px;line-height:1.75;color:var(--ink2);max-width:480px;margin-bottom:52px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--ink);padding:14px 32px;border-radius:2px;text-decoration:none;transition:background .2s}
+.btn-primary:hover{background:var(--gold)}
+.btn-outline{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1.5px solid var(--border);padding:13px 32px;border-radius:2px;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:40px;border-top:1px solid var(--border)}
+.stat-item{display:flex;flex-direction:column;gap:4px}
+.stat-num{font-family:var(--serif);font-size:32px;font-weight:300;color:var(--ink)}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.hero-right{background:var(--bg2);display:flex;flex-direction:column;justify-content:flex-end;padding:60px 48px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,var(--border) 39px,var(--border) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,var(--border) 39px,var(--border) 40px);opacity:.4}
+.hero-tag-cloud{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1;margin-bottom:40px}
+.hero-tag{font-size:12px;font-weight:500;letter-spacing:.06em;padding:7px 16px;border-radius:2px;border:1px solid var(--border);background:rgba(250,249,246,.7);color:var(--ink2);animation:tagIn .6s ease both}
+.hero-tag:nth-child(1){animation-delay:.1s}.hero-tag:nth-child(2){animation-delay:.15s}.hero-tag:nth-child(3){animation-delay:.2s}.hero-tag:nth-child(4){animation-delay:.25s}.hero-tag:nth-child(5){animation-delay:.3s}.hero-tag:nth-child(6){animation-delay:.35s}.hero-tag:nth-child(7){animation-delay:.4s}.hero-tag:nth-child(8){animation-delay:.45s}.hero-tag:nth-child(9){animation-delay:.5s}
+@keyframes tagIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero-card{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:28px 32px;position:relative;z-index:1}
+.hero-card-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.hero-card-text{font-family:var(--serif);font-size:22px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.4}
+.hero-card-sub{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* ── SECTION HEADERS ── */
+.section-label{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';width:28px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:20px}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{font-size:16px;color:var(--muted);max-width:520px;line-height:1.7}
+
+/* ── ABOUT ── */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:72px}
+.about-text p{font-size:16px;line-height:1.85;color:var(--ink2);margin-bottom:20px}
+.about-text p:first-child{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--ink);line-height:1.6;font-style:italic}
+.about-aside{display:flex;flex-direction:column;gap:24px}
+.about-block{padding:28px;border:1px solid var(--border);border-radius:4px;background:var(--bg2)}
+.about-block-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.about-block h4{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);margin-bottom:8px}
+.about-block p{font-size:14px;color:var(--muted);line-height:1.6}
+.interests-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.interest-tag{font-size:12px;font-weight:500;color:var(--ink2);background:var(--bg);border:1px solid var(--border);padding:5px 14px;border-radius:20px}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:72px;border:1px solid var(--border)}
+.skill-card{background:var(--bg);padding:40px 36px;border:none;transition:background .2s}
+.skill-card:hover{background:var(--gold-l)}
+.skill-card-icon{font-size:28px;margin-bottom:20px}
+.skill-card h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:16px}
+.skill-items{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{font-size:12px;font-weight:500;color:var(--ink2);background:var(--bg2);border:1px solid var(--border);padding:4px 12px;border-radius:2px;letter-spacing:.02em}
+
+/* ── WORK ── */
+#work{background:var(--bg)}
+.work-grid{margin-top:72px;display:flex;flex-direction:column;gap:2px}
+.project-card{display:grid;grid-template-columns:80px 1fr auto;gap:40px;align-items:start;padding:40px 40px;border:1px solid var(--border);background:var(--bg);transition:background .25s,border-color .25s;text-decoration:none;color:inherit}
+.project-card:hover{background:var(--bg2);border-color:var(--gold)}
+.project-num{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--border);transition:color .25s;line-height:1}
+.project-card:hover .project-num{color:var(--gold-l)}
+.project-body{}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.project-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--gold-l);padding:3px 10px;border-radius:2px}
+.project-title{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.project-desc{font-size:14.5px;color:var(--muted);line-height:1.7;max-width:580px}
+.project-arrow{font-size:20px;color:var(--border);transition:color .25s,transform .25s;margin-top:4px}
+.project-card:hover .project-arrow{color:var(--gold);transform:translate(4px,-4px)}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--bg2)}
+.exp-timeline{margin-top:72px;display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:44px 0;border-bottom:1px solid var(--border)}
+.exp-item:first-child{border-top:1px solid var(--border)}
+.exp-date{font-size:13px;color:var(--muted);padding-top:4px;line-height:1.5}
+.exp-date strong{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px}
+.exp-content{}
+.exp-role{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:4px}
+.exp-org{font-size:14px;font-weight:500;color:var(--gold);margin-bottom:16px}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-bullets li{font-size:14.5px;color:var(--ink2);line-height:1.65;padding-left:20px;position:relative}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:12px;top:4px}
+
+/* ── GOALS ── */
+#goals{background:var(--bg)}
+.goals-track{margin-top:72px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);position:relative}
+.goals-track::before{content:'';position:absolute;top:44px;left:10%;right:10%;height:1px;background:var(--border);z-index:0}
+.goal-item{padding:40px 28px;border-right:1px solid var(--border);position:relative;z-index:1;transition:background .2s}
+.goal-item:last-child{border-right:none}
+.goal-item:hover{background:var(--bg2)}
+.goal-dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--border);background:var(--bg);margin-bottom:28px;transition:border-color .2s,background .2s}
+.goal-item:hover .goal-dot{border-color:var(--gold);background:var(--gold)}
+.goal-date{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.goal-title{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);margin-bottom:10px;line-height:1.25}
+.goal-body{font-size:13px;color:var(--muted);line-height:1.65}
+.goals-bottom{margin-top:60px;padding:48px;background:var(--ink);border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.goals-vision-label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.goals-vision-text{font-family:var(--serif);font-size:32px;font-weight:300;color:#faf9f6;line-height:1.25;font-style:italic}
+.goals-vision-sub{font-size:14px;color:rgba(250,249,246,.5);margin-top:16px;line-height:1.65}
+.goals-tags{display:flex;flex-wrap:wrap;gap:10px}
+.goals-tag{font-size:12px;font-weight:500;color:rgba(250,249,246,.6);border:1px solid rgba(250,249,246,.15);padding:7px 16px;border-radius:2px}
+
+/* ── RESUME ── */
+#resume{background:var(--bg2)}
+.resume-inner{margin-top:72px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.resume-col h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.resume-edu-item{padding:24px 0;border-bottom:1px solid var(--border)}
+.resume-edu-item:last-child{border-bottom:none}
+.resume-edu-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.resume-edu-org{font-size:14px;color:var(--gold);margin-bottom:4px}
+.resume-edu-meta{font-size:13px;color:var(--muted)}
+.coursework{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.course-tag{font-size:11px;color:var(--ink2);background:var(--bg);border:1px solid var(--border);padding:3px 10px;border-radius:2px}
+.resume-skills-group{margin-bottom:28px}
+.resume-skills-group h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.resume-skill-list{display:flex;flex-wrap:wrap;gap:8px}
+.resume-skill{font-size:13px;font-weight:500;color:var(--ink2);background:var(--bg);border:1px solid var(--border);padding:5px 14px;border-radius:2px}
+.resume-cta{margin-top:48px;display:flex;gap:16px}
+
+/* ── CONTACT ── */
+#contact{background:var(--ink);color:var(--bg)}
+#contact .section-label{color:var(--gold)}
+#contact .section-label::before{background:var(--gold)}
+#contact .section-title{color:var(--bg)}
+.contact-grid{margin-top:72px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-intro{font-family:var(--serif);font-size:22px;font-weight:300;font-style:italic;color:rgba(250,249,246,.7);line-height:1.65;margin-bottom:40px}
+.contact-links{display:flex;flex-direction:column;gap:0}
+.contact-link{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(250,249,246,.1);text-decoration:none;color:var(--bg);transition:color .2s}
+.contact-link:first-child{border-top:1px solid rgba(250,249,246,.1)}
+.contact-link:hover{color:var(--gold)}
+.contact-link-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.contact-link-val{font-size:16px}
+.contact-link-arrow{font-size:20px;opacity:.4;transition:opacity .2s,transform .2s}
+.contact-link:hover .contact-link-arrow{opacity:1;transform:translate(4px,-4px)}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-field{display:flex;flex-direction:column;gap:8px}
+.form-field label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,249,246,.5)}
+.form-field input,.form-field textarea{background:rgba(250,249,246,.06);border:1px solid rgba(250,249,246,.12);border-radius:2px;padding:14px 18px;color:var(--bg);font-family:var(--sans);font-size:15px;outline:none;transition:border-color .2s;resize:none}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--gold)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(250,249,246,.25)}
+.form-submit{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--gold);border:none;padding:16px 36px;border-radius:2px;align-self:flex-start;transition:opacity .2s}
+.form-submit:hover{opacity:.85}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(250,249,246,.08);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:var(--serif);font-size:16px;font-weight:300;color:rgba(250,249,246,.4)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,249,246,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .about-grid,.resume-inner,.contact-grid,.goals-bottom{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .goals-track{grid-template-columns:1fr 1fr}
+  .project-card{grid-template-columns:60px 1fr}
+  .project-arrow{display:none}
+  .exp-item{grid-template-columns:1fr}
+  nav{padding:0 24px}
+  section{padding:80px 24px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">PA<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#campus">Campus</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:pngirnyuy3@gatech.edu" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Engineering Portfolio</div>
+    <h1 class="hero-name">Precious<br><em>Asher</em><br>Bracha Ngirnyuy</h1>
+    <p class="hero-title">Computer & Aerospace Engineering — Georgia Tech</p>
+    <p class="hero-bio">A dual-degree freshman at Georgia Institute of Technology building at the intersection of hardware security, civic technology, and community impact. From Yaoundé to Atlanta — engineering solutions that are technically sound and deeply human.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Say Hello</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Degrees in Progress</span></div>
+      <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">Years Building Apps</span></div>
+      <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Fluent Languages</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tag-cloud">
+      <span class="hero-tag">Hardware Security</span>
+      <span class="hero-tag">Embedded Systems</span>
+      <span class="hero-tag">Python · C · C++ · Java</span>
+      <span class="hero-tag">Lucidchart</span>
+      <span class="hero-tag">Mobile App Dev</span>
+      <span class="hero-tag">Civic Technology</span>
+      <span class="hero-tag">Arduino</span>
+      <span class="hero-tag">MATLAB</span>
+      <span class="hero-tag">Leadership</span>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Currently</div>
+      <div class="hero-card-text">"Career Development Chair, WoAA — spearheading The Bridge Series at Georgia Tech."</div>
+      <div class="hero-card-sub">Women of Aeronautics & Astronautics · Jan 2026–Present</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Engineer by training.<br><em>Community-builder</em> by choice.</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>My engineering journey began not in a formal lab, but in my community in Yaoundé, Cameroon — where observing systemic challenges in waste management and resource access led me to co-found BrachSpace, my social impact venture.</p>
+        <p>This foundation shapes how I approach every technical challenge with a dual lens: Is it technically sound, and does it solve a meaningful human problem? It's why I chose Georgia Tech's rigorous dual-degree path in Computer Engineering and Aerospace Engineering.</p>
+        <p>I believe the future of secure, autonomous systems — whether in aerospace or embedded computing — lies at the intersection of two threads: Cybersecurity and Computer Hardware. The Cybersecurity thread addresses and mitigates vulnerabilities; the Hardware thread designs security directly into physical infrastructure.</p>
+        <p>Beyond the code, my identity is defined by leadership and mentorship. I've guided young women aged 12–18 through Technovation and STEMin Africa, and my selection for the competitive Aspire Leaders Program (Harvard faculty-led) solidified my approach to intentional, civic-purpose leadership.</p>
+      </div>
+      <div class="about-aside">
+        <div class="about-block">
+          <div class="about-block-label">Education</div>
+          <h4>Georgia Institute of Technology</h4>
+          <p>B.S. Computer Engineering & Aerospace Engineering<br>Expected Graduation: December 2029</p>
+        </div>
+        <div class="about-block">
+          <div class="about-block-label">Also</div>
+          <h4>Houston Community College</h4>
+          <p>Transfer · 9 Credit Hours · GPA 4.00<br>May 2025 – July 2025</p>
+        </div>
+        <div class="about-block">
+          <div class="about-block-label">Interests</div>
+          <div class="interests-list">
+            <span class="interest-tag">Cross-Cultural Languages</span>
+            <span class="interest-tag">Leadership Development</span>
+            <span class="interest-tag">Civic Innovation</span>
+            <span class="interest-tag">Robotics & System Building</span>
+            <span class="interest-tag">French & English</span>
+          </div>
+        </div>
+        <div class="about-block">
+          <div class="about-block-label">Campus Involvement</div>
+          <p style="font-size:14px;color:var(--muted);line-height:1.7">AIAA · Society of Women Engineers · Grand Challenges LLC · AE Career Fair Volunteer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Skills & Tools</div>
+    <h2 class="section-title">What I <em>bring</em> to the table.</h2>
+    <p class="section-sub">A combination of technical depth and operational breadth — built through coursework, real projects, and cross-cultural leadership.</p>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-card-icon">⌨️</div>
+        <h3>Programming</h3>
+        <div class="skill-items">
+          <span class="skill-pill">Python</span><span class="skill-pill">C</span><span class="skill-pill">C++</span>
+          <span class="skill-pill">Java</span><span class="skill-pill">HTML</span><span class="skill-pill">MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🔧</div>
+        <h3>Tools & Platforms</h3>
+        <div class="skill-items">
+          <span class="skill-pill">Lucidchart</span><span class="skill-pill">Figma</span><span class="skill-pill">Adobe XD</span>
+          <span class="skill-pill">GitHub</span><span class="skill-pill">VS Code</span><span class="skill-pill">Arduino IDE</span>
+          <span class="skill-pill">Canva</span><span class="skill-pill">MS Office</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">📱</div>
+        <h3>App Development</h3>
+        <div class="skill-items">
+          <span class="skill-pill">App Inventor</span><span class="skill-pill">Thunkable</span>
+          <span class="skill-pill">Streamlit</span><span class="skill-pill">Mobile Dev</span>
+          <span class="skill-pill">Web Design</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">📋</div>
+        <h3>Documentation</h3>
+        <div class="skill-items">
+          <span class="skill-pill">SOP Writing</span><span class="skill-pill">Process Diagrams</span>
+          <span class="skill-pill">Workflow Design</span><span class="skill-pill">Technical Writing</span>
+          <span class="skill-pill">Data Logging</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🔌</div>
+        <h3>Hardware</h3>
+        <div class="skill-items">
+          <span class="skill-pill">Arduino</span><span class="skill-pill">Circuit Design</span>
+          <span class="skill-pill">3D Printing</span><span class="skill-pill">Breadboarding</span>
+          <span class="skill-pill">Digital Logic</span><span class="skill-pill">PWM</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🌍</div>
+        <h3>Leadership & Soft Skills</h3>
+        <div class="skill-items">
+          <span class="skill-pill">Event Coordination</span><span class="skill-pill">Public Speaking</span>
+          <span class="skill-pill">Mentorship</span><span class="skill-pill">Cross-Cultural Comms</span>
+          <span class="skill-pill">English</span><span class="skill-pill">French</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="container">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">Things I've <em>built.</em></h2>
+    <p class="section-sub">From civic-tech mobile apps to AI-powered Streamlit labs — each project is a proof of concept for an idea worth building.</p>
+    <div class="work-grid reveal">
+
+      <a href="project-gring.html" class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Mobile App</span><span class="project-tag">Civic Tech</span><span class="project-tag">Solo</span></div>
+          <h3 class="project-title">GRING — Waste Management App</h3>
+          <p class="project-desc">A mobile application connecting residents with garbage collection companies for efficient, data-driven disposal. Built with optimized service request matching, real-time tracking, and integrated educational modules for proper waste sorting.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a href="project-toolman.html" class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Mobile App</span><span class="project-tag">Team Lead</span><span class="project-tag">Front-End</span></div>
+          <h3 class="project-title">Toolman App — Tradespeople Platform</h3>
+          <p class="project-desc">A platform designed to provide market exposure and client connections for skilled tradespeople. Led front-end design and functional testing for cross-device compatibility; pitched to national judges at Tech Innovation Cameroon.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a href="https://webdevlab03-omhpdpccux85gwwgjcyjkc.streamlit.app/" target="_blank" class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Streamlit</span><span class="project-tag">Gemini LLM</span><span class="project-tag">API</span></div>
+          <h3 class="project-title">AI-Powered Meal Discovery App</h3>
+          <p class="project-desc">Integrates TheMealDB API with Google Gemini LLM to deliver intelligent recipe insights, a conversational meal chatbot, and an AI recipe analyzer. Built with Streamlit; demonstrates real-time API integration and LLM prompt engineering.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a href="https://jnxxhdlvbwzr8nferukazv.streamlit.app/" target="_blank" class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Data Viz</span><span class="project-tag">Streamlit</span></div>
+          <h3 class="project-title">Data Collection & Visualization Lab</h3>
+          <p class="project-desc">A live CSV data pipeline with a survey form, static bar chart, dynamic scatter plot, and aggregation chart — all driven by user-submitted data. Demonstrates end-to-end data flow from input to visual output.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a href="https://cjmkyskihunfy9vr8mmrfz.streamlit.app/" target="_blank" class="project-card">
+        <div class="project-num">05</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Web App</span><span class="project-tag">CS 1301</span></div>
+          <h3 class="project-title">Web Development Lab — Portfolio & Quiz</h3>
+          <p class="project-desc">A multi-page Streamlit web application featuring a personal portfolio page with education, experience, and skills — plus a BuzzFeed-style personality quiz. First full web app built in CS 1301.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a href="project-horn.html" class="project-card">
+        <div class="project-num">06</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="project-tag">Arduino</span><span class="project-tag">Hardware</span><span class="project-tag">3D Print</span><span class="project-tag">ECE 1100</span></div>
+          <h3 class="project-title">Portable Magnetic Horn — Personal Transport Safety</h3>
+          <p class="project-desc">A self-contained electronic horn using a 9V battery, toggle switch, Arduino Uno (PWM via tone()), and piezo buzzer, housed in a 3D-printed enclosure that magnetically clips to any bicycle, scooter, or personal transport device.</p>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Experience & Leadership</div>
+    <h2 class="section-title">Where I've <em>contributed.</em></h2>
+    <div class="exp-timeline reveal">
+
+      <div class="exp-item">
+        <div class="exp-date"><strong>Jan 2026 – Present</strong>Atlanta, GA</div>
+        <div class="exp-content">
+          <div class="exp-role">Career Development Chair</div>
+          <div class="exp-org">Women of Aeronautics & Astronautics (WoAA), Georgia Tech Chapter</div>
+          <ul class="exp-bullets">
+            <li>Coordinate professional development for 100+ members, including "The Bridge Series" connecting undergrad and graduate students.</li>
+            <li>Manage event logistics, room reservations, and speaker outreach for 1–3 workshops per semester using MS Teams and Canva.</li>
+            <li>Spearheading a Global-Intersectional Initiative bridging international student experiences and domestic career opportunities.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><strong>Jul 2023 – Present</strong>Yaoundé, Cameroon (Remote)</div>
+        <div class="exp-content">
+          <div class="exp-role">Lead Mentor & Advocacy Coordinator</div>
+          <div class="exp-org">Technovation & STEMin Africa (Volunteer)</div>
+          <ul class="exp-bullets">
+            <li>Guided students aged 12–18 through complex coding logic and mobile app development project management.</li>
+            <li>Managed inventory and resource distribution for international mentoring cycles, ensuring 100% participation tracking.</li>
+            <li>Built workflow diagrams using Lucidchart to map curriculum delivery and program logistics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><strong>Apr 2024 – Aug 2024</strong>Online (Harvard Faculty-Led)</div>
+        <div class="exp-content">
+          <div class="exp-role">Alumni & Career Strategy Trainee</div>
+          <div class="exp-org">Aspire Leaders Program</div>
+          <ul class="exp-bullets">
+            <li>Completed intensive training in effective communication, team management, and strategic storytelling.</li>
+            <li>Applied project management frameworks to real-world operational planning scenarios.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><strong>Sep 2020 – Present</strong>Yaoundé / Atlanta</div>
+        <div class="exp-content">
+          <div class="exp-role">Founder</div>
+          <div class="exp-org">BrachSpace</div>
+          <ul class="exp-bullets">
+            <li>Independently developed and deployed community-focused apps GRING and Toolman, including API and database integration.</li>
+            <li>Pitched projects to national judges; maintained living documentation, architecture diagrams, and deployment checklists.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date"><strong>Feb 2021 – Mar 2025</strong>Yaoundé, Cameroon</div>
+        <div class="exp-content">
+          <div class="exp-role">Youth Minister & Academic Support</div>
+          <div class="exp-org">Church Community Program</div>
+          <ul class="exp-bullets">
+            <li>Managed weekly educational programs for up to 50 children, maintaining accountability for program flow and safety.</li>
+            <li>Demonstrated reliability by adhering to strict schedules and acting as responsible staff in the absence of senior leadership.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS INVOLVEMENT -->
+<section id="campus" style="background:var(--bg);padding:120px 48px">
+  <div class="container">
+    <div class="section-label">Campus & Community</div>
+    <h2 class="section-title">Where I show <em>up.</em></h2>
+    <p class="section-sub">Active involvement across engineering organizations, living-learning communities, and advocacy spaces at Georgia Tech.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:72px;border:1px solid var(--border)" class="reveal">
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Leadership Role</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">WoAA — GT Chapter</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">Career Development Chair</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Coordinates professional development for 100+ members. Organizes The Bridge Series, Elevator Pitch workshops, and Intersectional Spotlights each semester.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Jan 2026 – Present</div>
+      </div>
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s;border-left:1px solid var(--border)" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Member</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">Society of Women Engineers</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">GT Chapter (SWE)</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Active member of Georgia Tech's SWE chapter, engaging with professional development events, networking, and advocacy for women in STEM fields.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Aug 2025 – Present</div>
+      </div>
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s;border-left:1px solid var(--border)" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Member</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">AIAA — GT Chapter</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">American Institute of Aeronautics & Astronautics</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Member of Georgia Tech's AIAA chapter, connecting with aerospace engineering professionals, research initiatives, and technical events aligned with the Aerospace Engineering degree track.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Aug 2025 – Present</div>
+      </div>
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s;border-top:1px solid var(--border)" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Member & Collaborator</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">Grand Challenges LLC</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">Living Learning Community</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Collaborates in a multidisciplinary team using a "mini Create-X" framework to solve complex global engineering problems. Uses Lucid Suite to build logic workflows and process diagrams for academic projects.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Aug 2025 – Present</div>
+      </div>
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s;border-top:1px solid var(--border);border-left:1px solid var(--border)" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">International Volunteer</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">Technovation & STEMin Africa</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">Lead Mentor & Advocacy Coordinator</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Remotely guides girls aged 12–18 through mobile app development cycles in Yaoundé, Cameroon. Manages workshop logistics, builds SOPs, and advocates for STEM access in resource-constrained environments.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Jul 2023 – Present</div>
+      </div>
+
+      <div style="padding:40px 36px;background:var(--bg);transition:background .2s;border-top:1px solid var(--border);border-left:1px solid var(--border)" onmouseenter="this.style.background='var(--bg2)'" onmouseleave="this.style.background='var(--bg)'">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Volunteer</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px">AE Career Fair</div>
+        <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:14px">Resume Workshop Participant</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.7">Participated in Georgia Tech's Aerospace Engineering Career Fair and resume workshops during the first semester, building connections with aerospace industry professionals and recruiters.</p>
+        <div style="margin-top:16px;font-size:12px;color:var(--muted);font-style:italic">Fall 2025</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="container">
+    <div class="section-label">Career Roadmap</div>
+    <h2 class="section-title">A roadmap to <em>Trusted Computing.</em></h2>
+    <p class="section-sub">My long-term goal is to become a Technical Lead or Architect in Trusted Computing — leading the design of secure, low-level computing architectures.</p>
+    <div class="goals-track reveal">
+      <div class="goal-item">
+        <div class="goal-dot"></div>
+        <div class="goal-date">Aug 2025 – 2027</div>
+        <div class="goal-title">Foundation</div>
+        <div class="goal-body">Achieve 3.5 GPA. Join YJSP Avionics Team for hands-on embedded systems and firmware experience.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-dot"></div>
+        <div class="goal-date">2027 – 2028</div>
+        <div class="goal-title">Specialization</div>
+        <div class="goal-body">Enroll in VIP team for IoT Security or Secure Hardware Design. Begin undergraduate research on Trusted Platform Modules.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-dot"></div>
+        <div class="goal-date">Summer 2026</div>
+        <div class="goal-title">Industry</div>
+        <div class="goal-body">Secure co-op or internship focused on hardware verification, firmware testing, or hardware validation.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-dot"></div>
+        <div class="goal-date">2028 – Dec 2029</div>
+        <div class="goal-title">Culmination</div>
+        <div class="goal-body">Senior Design project in secure hardware/firmware. Finalize full-time or graduate school applications.</div>
+      </div>
+      <div class="goal-item">
+        <div class="goal-dot" style="border-color:var(--gold);background:var(--gold)"></div>
+        <div class="goal-date">2033 – 2035</div>
+        <div class="goal-title">★ Vision</div>
+        <div class="goal-body">Technical Lead in Trusted Computing. Direct BrachSpace security and hardware strategy within 10 years of graduation.</div>
+      </div>
+    </div>
+    <div class="goals-bottom reveal">
+      <div>
+        <div class="goals-vision-label">Long-Term Vision</div>
+        <div class="goals-vision-text">"Design security into the hardware itself — not as an afterthought, but as the foundation."</div>
+        <div class="goals-vision-sub">Trusted Computing · Secure Hardware Architecture · Civic Impact through BrachSpace</div>
+      </div>
+      <div class="goals-tags">
+        <span class="goals-tag">Cybersecurity Thread</span>
+        <span class="goals-tag">Hardware Thread</span>
+        <span class="goals-tag">Trusted Platform Modules</span>
+        <span class="goals-tag">IoT Security</span>
+        <span class="goals-tag">Graduate School / Industry</span>
+        <span class="goals-tag">BrachSpace</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="section-label">Resume</div>
+    <h2 class="section-title">Education & <em>Qualifications.</em></h2>
+    <div class="resume-inner reveal">
+      <div class="resume-col">
+        <h3>Education</h3>
+        <div class="resume-edu-item">
+          <div class="resume-edu-title">B.S. Computer Engineering & Aerospace Engineering</div>
+          <div class="resume-edu-org">Georgia Institute of Technology</div>
+          <div class="resume-edu-meta">Aug 2025 – Dec 2029 (Expected) · Atlanta, GA</div>
+          <div class="coursework">
+            <span class="course-tag">ECE 1100</span><span class="course-tag">CS 1301</span>
+            <span class="course-tag">MATH 1554</span><span class="course-tag">MATH 1551</span>
+            <span class="course-tag">ENG 1101</span><span class="course-tag">Intro to AE</span>
+          </div>
+        </div>
+        <div class="resume-edu-item">
+          <div class="resume-edu-title">Transfer Student — 9 Credit Hours</div>
+          <div class="resume-edu-org">Houston Community College</div>
+          <div class="resume-edu-meta">May 2025 – Jul 2025 · GPA: 4.00</div>
+        </div>
+        <div class="resume-edu-item">
+          <div class="resume-edu-title">Alumni & Leadership Trainee</div>
+          <div class="resume-edu-org">Aspire Leaders Program (Harvard Faculty-Led)</div>
+          <div class="resume-edu-meta">Apr 2024 – Aug 2024 · Online</div>
+        </div>
+        <div class="resume-cta">
+          <a href="resume.html" class="btn-primary">View Full Resume</a>
+          <a href="mailto:pngirnyuy3@gatech.edu" class="btn-outline">Request PDF</a>
+        </div>
+      </div>
+      <div class="resume-col">
+        <h3>Technical Skills</h3>
+        <div class="resume-skills-group">
+          <h4>Programming Languages</h4>
+          <div class="resume-skill-list">
+            <span class="resume-skill">Python</span><span class="resume-skill">C</span>
+            <span class="resume-skill">C++</span><span class="resume-skill">Java</span>
+            <span class="resume-skill">HTML</span><span class="resume-skill">MATLAB</span>
+          </div>
+        </div>
+        <div class="resume-skills-group">
+          <h4>Design & Diagramming</h4>
+          <div class="resume-skill-list">
+            <span class="resume-skill">Lucidchart / Lucid Suite</span>
+            <span class="resume-skill">Figma</span><span class="resume-skill">Adobe XD</span>
+            <span class="resume-skill">Canva</span>
+          </div>
+        </div>
+        <div class="resume-skills-group">
+          <h4>Platforms & Tools</h4>
+          <div class="resume-skill-list">
+            <span class="resume-skill">GitHub</span><span class="resume-skill">MS Office Suite</span>
+            <span class="resume-skill">Streamlit</span><span class="resume-skill">Arduino IDE</span>
+            <span class="resume-skill">App Inventor</span><span class="resume-skill">Thunkable</span>
+          </div>
+        </div>
+        <div class="resume-skills-group">
+          <h4>Languages</h4>
+          <div class="resume-skill-list">
+            <span class="resume-skill">English (Fluent)</span>
+            <span class="resume-skill">French (Fluent)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's <em>connect.</em></h2>
+    <div class="contact-grid reveal">
+      <div>
+        <p class="contact-intro">"Ready to connect about hardware security, embedded systems, civic tech, or just about anything at the intersection of engineering and community."</p>
+        <div class="contact-links">
+          <a href="mailto:pngirnyuy3@gatech.edu" class="contact-link">
+            <div><div class="contact-link-label">Email</div><div class="contact-link-val">pngirnyuy3@gatech.edu</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+          <a href="tel:+18324292639" class="contact-link">
+            <div><div class="contact-link-label">Phone</div><div class="contact-link-val">+832.429.2639</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+          <a href="resume.html" class="contact-link">
+            <div><div class="contact-link-label">Resume</div><div class="contact-link-val">View full resume page</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+          <a href="#" class="contact-link">
+            <div><div class="contact-link-label">Location</div><div class="contact-link-val">Atlanta, GA 30332</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Smith" required/>
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="jane@example.com" required/>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Tell me about your project, opportunity, or just say hi..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <div id="form-success" style="display:none;font-size:13px;color:var(--gold);margin-top:8px">Message sent! I'll be in touch soon.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Precious Asher Bracha Ngirnyuy · Georgia Tech · 2029</span>
+  <div class="footer-links">
+    <a href="#hero">Top</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.project-card,.skill-card,.goal-item').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.08});
+reveals.forEach(r => io.observe(r));
+
+// Smooth active nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--gold)' : '';
+  });
+});
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
